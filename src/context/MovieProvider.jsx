@@ -11,21 +11,21 @@ const MovieProvider = ({ children }) => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const getMovies = () => {
+  const getMovies = (URL) => {
     setLoading(true);
     axios
-      .get(FEATURED_API)
+      .get(URL)
       .then((res) => setMovies(res.data.results))
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
   };
 
   useEffect(() => {
-    getMovies();
+    getMovies(FEATURED_API);
   }, []);
 
   return (
-    <MovieContext.Provider value={{ movies, loading }}>
+    <MovieContext.Provider value={{ movies, loading, getMovies }}>
       {children}
     </MovieContext.Provider>
   );
