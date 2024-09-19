@@ -4,7 +4,7 @@ import { useAuthContext } from "../context/AuthProvider";
 import { Link } from "react-router-dom";
 
 const Login = () => {
-  const { signIn, googleProvider } = useAuthContext();
+  const { signIn, googleProvider, forgotPassword } = useAuthContext();
   const [info, setInfo] = useState({
     email: "",
     password: "",
@@ -51,7 +51,10 @@ const Login = () => {
               <label htmlFor="floating_password">Password</label>
             </div>
             <div className="flex justify-between">
-              <span className="py-3 font-[0.75em] cursor-pointer decoration-none text-gray-500 hover:text-[#ff4b45]">
+              <span
+                onClick={() => forgotPassword(email)}
+                className="py-3 font-[0.75em] cursor-pointer decoration-none text-gray-500 hover:text-[#ff4b45]"
+              >
                 Forgot Password
               </span>
               <Link
