@@ -3,7 +3,7 @@ import GoogleIcon from "../assets/icons/GoogleIcon";
 import { useAuthContext } from "../context/AuthProvider";
 
 const Register = () => {
-  const { createUser } = useAuthContext();
+  const { createUser, googleProvider } = useAuthContext();
   const [info, setInfo] = useState({
     firstName: "",
     lastName: "",
@@ -18,7 +18,8 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    createUser(email, password);
+    const displayName = `${firstName} ${lastName}`;
+    createUser(email, password, displayName);
   };
   return (
     <div className="flex justify-center">
@@ -78,6 +79,7 @@ const Register = () => {
             <button
               className="flex justify-between text-center items-center btn-danger"
               type="button"
+              onClick={googleProvider}
             >
               Continue with Google
               <GoogleIcon color="currentColor" />
