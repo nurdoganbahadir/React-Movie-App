@@ -8,13 +8,11 @@ import {
 import { Link } from "react-router-dom";
 import SwitchButton from "./SwitchButton";
 import avatar from "../assets/icons/avatar.png";
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
+import { useAuthContext } from "../context/AuthProvider";
 
 export default function Navbar() {
-  const currentUser = { displayName: "felix franko" };
+  const { logOut, currentUser } = useAuthContext();
+  // const currentUser = { displayName: "felix franko" };
   // const currentUser = false;
   return (
     <>
@@ -36,10 +34,9 @@ export default function Navbar() {
               )}
               <SwitchButton />
               {/* Profile dropdown */}
-              <Menu as="div" className="relative ml-3">
+              <Menu as="div" className="relative">
                 <div>
                   <MenuButton className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                    <span className="absolute -inset-1.5" />
                     <span className="sr-only">Open user menu</span>
                     <img
                       alt=""
@@ -65,12 +62,15 @@ export default function Navbar() {
                       to="/login"
                       className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100"
                     >
-                      Settings
+                      Login
                     </Link>
                   </MenuItem>
                   <MenuItem>
-                    <span className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 cursor-pointer">
-                      Log Out
+                    <span
+                      onClick={logOut}
+                      className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 cursor-pointer"
+                    >
+                      Log out
                     </span>
                   </MenuItem>
                 </MenuItems>
