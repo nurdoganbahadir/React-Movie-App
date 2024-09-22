@@ -73,11 +73,11 @@ const Register = () => {
               />
               <label htmlFor="floating_password">Password</label>
             </div>
-            <button className="btn-danger" type="submit">
+            <button className="btn-danger hover:bg-green-500" type="submit">
               Register
             </button>
             <button
-              className="flex justify-between text-center items-center btn-danger"
+              className="flex justify-between text-center items-center btn-danger hover:bg-green-500"
               type="button"
               onClick={googleProvider}
             >
