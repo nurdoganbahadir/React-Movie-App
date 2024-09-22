@@ -35,7 +35,7 @@ const Main = () => {
         />
         <button className="btn-danger-bordered">Search</button>
       </form>
-      <div className="flex flex-wrap justify-center">
+      <div className="flex flex-wrap justify-center ">
         {loading ? (
           <Loading />
         ) : (

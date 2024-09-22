@@ -19,23 +19,27 @@ const MovieCard = ({ title, poster_path, overview, vote_average, id }) => {
     }
   };
   return (
-    <div onClick={() => navigate("/details/"+id)} className="movie">
+    <div
+      onClick={() => navigate("/details/" + id)}
+      className="movie w-[150px] h-[300px] md:w-[300px] md:h-[510px]"
+    >
       <img
         loading="lazy"
         src={poster_path ? IMG_API + poster_path : defaultImage}
         alt="movie-card"
+        className="bg-center"
       />
       <div className="flex align-baseline justify-between p-1 text-white">
-        <h5>{title}</h5>
+        <h5 className="text-xs md:text-md">{title}</h5>
         {currentUser && (
-          <span className={`tag ${getVoteClass()}`}>
+          <span className={`tag ${getVoteClass()} text-xs`}>
             {vote_average.toFixed(1)}
           </span>
         )}
       </div>
       <div className="movie-over">
         <h2>Overview</h2>
-        <p>{overview}</p>
+        <p className="text-xs md: text-md">{overview}</p>
       </div>
     </div>
   );

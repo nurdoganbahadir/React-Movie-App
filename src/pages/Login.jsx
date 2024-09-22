@@ -24,7 +24,7 @@ const Login = () => {
       <div className="overflow-hidden flex-1 h-screen justify-center items-center dark:bg-gray-dark-main">
         <div className={`form-container mt-[5vh] w-[380px] h-[500px] `}>
           <form onSubmit={handleSubmit}>
-            <h2 className="text-red-main text-2xl font-[500] text-center tracking-[0.1em] mb-3">
+            <h2 className="text-red-main text-2xl font-[500] text-start tracking-[0.1em] mb-3">
               Sign In
             </h2>
 
@@ -53,22 +53,22 @@ const Login = () => {
             <div className="flex justify-between">
               <span
                 onClick={() => forgotPassword(email)}
-                className="py-3 font-[0.75em] cursor-pointer decoration-none text-gray-500 hover:text-[#ff4b45]"
+                className="py-3 font-[0.75em] cursor-pointer decoration-none text-gray-500 hover:text-indigo-400"
               >
                 Forgot Password
               </span>
               <Link
-                className="py-3 font-[0.75em] cursor-pointer decoration-none text-gray-500 hover:text-[#ff4b45]"
+                className="py-3 font-[0.75em] cursor-pointer decoration-none text-gray-500 hover:text-white"
                 to="/register"
               >
                 Sign Up
               </Link>
             </div>
-            <button className="btn-danger" type="submit">
+            <button className="btn-danger hover:bg-green-700" type="submit">
               Login
             </button>
             <button
-              className="flex justify-between text-center items-center btn-danger"
+              className="flex justify-between text-center items-center btn-danger hover:bg-green-700"
               type="button"
               onClick={googleProvider}
             >
